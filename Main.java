@@ -268,7 +268,6 @@ public class Main extends javax.swing.JFrame {
 
         String currentNumber = "";
 
-        // 1. Separar números e operadores
         for (int i = 0; i < expression.length(); i++) {
             char c = expression.charAt(i);
 
@@ -281,10 +280,8 @@ public class Main extends javax.swing.JFrame {
             }
         }
 
-        // adiciona o último número
         numbers.add(Double.parseDouble(currentNumber));
 
-        // 2. Resolver * e /
         int i = 0;
         while (i < operators.size()) {
             char op = operators.get(i);
@@ -311,20 +308,19 @@ public class Main extends javax.swing.JFrame {
             }
         }
 
-        // 3. Resolver + e -
-        double resultado = numbers.get(0);
+        double result = numbers.get(0);
 
         for (int j = 0; j < operators.size(); j++) {
             char op = operators.get(j);
 
             if (op == '+') {
-                resultado += numbers.get(j + 1);
+                result += numbers.get(j + 1);
             } else if (op == '-') {
-                resultado -= numbers.get(j + 1);
+                result -= numbers.get(j + 1);
             }
         }
 
-        return resultado;
+        return result;
     }
     
     private void btnActionStandart(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActionStandart
